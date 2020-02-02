@@ -29,4 +29,9 @@ export class MessagesScreenComponent implements OnInit {
     $('#fabPanel').addClass('d-none');
   }
 
+  changeTab(event){
+    $(".chat-nav").find(".active").removeClass("active");
+    $(event.target).addClass("active");
+  }
+
 }

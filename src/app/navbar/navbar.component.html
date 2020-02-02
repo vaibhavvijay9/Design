@@ -5,11 +5,11 @@
     </a>
 
     <nav class="nav top-nav pt-2">
-        <a class="nav-link">
+        <a class="nav-link" (click)="changeTab($event)">
             <i-feather name="users" class="mr-2 top-nav__icon"></i-feather>Groups</a>
-        <a class="nav-link active">
+        <a class="nav-link active" (click)="changeTab($event)">
             <i-feather name="message-square" class="mr-2 top-nav__icon"></i-feather>Messages</a>
-        <a class="nav-link">
+        <a class="nav-link" (click)="changeTab($event)">
             <i-feather name="video" class="mr-2 top-nav__icon"></i-feather>Video Calls</a>
     </nav>
 

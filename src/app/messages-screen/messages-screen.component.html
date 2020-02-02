@@ -43,10 +43,10 @@
         </div>
         <div class="col-md-8 right-partition px-0">
             <nav class="nav chat-nav pt-1">
-                <a class="nav-link text-uppercase active">
+                <a class="nav-link text-uppercase active" (click)="changeTab($event)">
                     <i-feather name="eye" class="mr-2 chat-nav__icon"></i-feather>REPLIES
                 </a>
-                <a class="nav-link text-uppercase">
+                <a class="nav-link text-uppercase" (click)="changeTab($event)">
                     <i-feather name="bar-chart-2" class="mr-2 chat-nav__icon"></i-feather>Reports
                 </a>
             </nav>
