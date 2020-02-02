@@ -1,0 +1,259 @@
+@import 'src/_variables.scss';
+.section-heading {
+    &__icon {
+        width: 30px;
+        color: $color-primary;
+        fill: $color-primary;
+    }
+    &__label {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    &__maximize-icon {
+        color: $color-grey-dark-2;
+    }
+}
+
+.messages-container {
+    min-height: 70vh;
+    background-color: $color-white;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 60px -46px rgba(105, 106, 106, 1);
+    -moz-box-shadow: 0px 0px 60px -46px rgba(105, 106, 106, 1);
+    box-shadow: 0px 0px 60px -46px rgba(105, 106, 106, 1);
+}
+
+.left-partition {
+    border-right: 1px solid $color-border;
+    &__header {
+        border-bottom: 1px solid $color-border;
+        &-title {
+            font-weight: 600;
+            color: $color-grey-dark-1;
+        }
+        &-count {
+            font-size: 14px;
+            color: $color-grey-dark-1;
+        }
+    }
+}
+
+.profile-image {
+    &__container {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #CCCCCC;
+        background-image: url('https://mindler-partner.s3.ap-south-1.amazonaws.com/partner-assets/user-placeholder.svg');
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.chat-list-container {
+    background-color: $color-grey-light-2;
+    // height: 60vh;
+    // overflow: auto;
+}
+
+// scroll bar
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: $color-grey-light-1;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-grey-dark-2;
+    border-radius: 6px;
+}
+
+.chat-list {
+    &:after {
+        content: '';
+        display: block;
+        border-top: 1px solid $color-border;
+    }
+    &__name {
+        color: $color-grey-dark-1;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    &__message {
+        color: $color-grey-dark-1;
+        font-size: 12px;
+        width: 220px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    &__info {
+        color: $color-grey-dark-1;
+        font-size: 12px;
+        &-eye-icon {
+            width: 18px;
+            color: $color-green;
+        }
+        &-bar-icon {
+            width: 18px;
+            color: $color-purple;
+        }
+    }
+    &.active-chat {
+        background-color: $color-primary-light;
+        &:after {
+            content: '';
+            display: block;
+            border-top: 1px solid $color-primary;
+        }
+        .chat-list__name {
+            color: $color-primary;
+        }
+    }
+}
+
+// Right Partition
+.chat-nav {
+    border-bottom: 1px solid $color-border;
+    &__icon {
+        color: $color-grey-dark-2;
+        width: 20px;
+    }
+    .nav-link {
+        color: $color-grey-dark-2;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 0.75rem 1rem;
+        margin: 0 0.7rem;
+        cursor: pointer;
+        &.active {
+            color: $color-black;
+            border: 2px solid $color-primary;
+            border-radius: 4px;
+            border-color: white white $color-primary;
+            .chat-nav__icon {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+.conversation {
+    &__time {
+        color: $color-grey-dark-2;
+        font-size: 12px;
+    }
+    &__msg {
+        background-color: $color-primary-dark;
+        border-radius: 12px;
+    }
+}
+
+.conversation-image {
+    &__container {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #CCCCCC;
+        background-image: url('https://mindler-partner.s3.ap-south-1.amazonaws.com/partner-assets/user-placeholder.svg');
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.fab {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $color-primary;
+    color: $color-white;
+    position: absolute;
+    z-index: 999;
+    &:focus {
+        .fab__label {
+            transform: rotate(45deg);
+            transition: all 0.3s ease-in-out 0s;
+            left: 10px;
+        }
+        // +.fab__panel {
+        //     display: flex;
+        // }
+    }
+    &:not(:focus) {
+        .fab__label {
+            transform: unset;
+            transition: all 0.3s ease-in-out 0s;
+            left: 0px;
+        }
+    }
+    &__label {
+        font-size: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        position: absolute;
+        top: -5px;
+        right: 0;
+        left: 0px;
+        bottom: 0;
+        transition: all 0.3s ease-in-out 0s;
+    }
+    &__panel {
+        background-color: $color-white;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        position: absolute;
+        width: fit-content;
+        display: none;
+        bottom: 64px;
+        z-index: 99;
+        &-item {
+            cursor: pointer;
+            font-size: 13px;
+            color: $color-grey-dark-2;
+            &:hover {
+                background-color: $color-primary-light;
+                border-radius: 4px;
+                color: $color-primary;
+            }
+        }
+        &-tip-arrow {
+            position: absolute;
+            position: absolute;
+            border: 8px solid $color-border;
+            bottom: -16px;
+            border-color: $color-border $color-white $color-white;
+        }
+        &-icon {
+            width: 18px;
+        }
+    }
+}
+
+.send-btn {
+    color: $color-white;
+    background-color: $color-primary;
+    border-radius: $border-radius;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.form-control:focus,
+.btn {
+    box-shadow: none;
+}

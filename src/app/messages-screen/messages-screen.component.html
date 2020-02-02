@@ -1,0 +1,115 @@
+<div class="section-heading d-flex justify-content-between">
+    <div class="px-3">
+        <i-feather name="message-square" class="mr-2 section-heading__icon"></i-feather>
+        <label class="section-heading__label mb-0">Messages</label>
+    </div>
+    <div>
+        <i-feather name="maximize-2" class="section-heading__maximize-icon"></i-feather>
+    </div>
+</div>
+
+<div class="messages-container my-3">
+    <div class="row mx-0">
+        <div class="col-md-4 left-partition px-0">
+            <div class="d-flex justify-content-between p-3 left-partition__header">
+                <label class="left-partition__header-title mb-0">Chats</label>
+                <label class="left-partition__header-count mb-0">29/30</label>
+            </div>
+            <div class="chat-list-container">
+                <div *ngFor="let chat of chatList;let i=index;first as activeChat" class="chat-list px-2" [class.active-chat]="activeChat">
+                    <div class="d-flex align-items-center py-3">
+                        <div class="profile-image__container">
+                            <img [src]="'../../assets/contact_'+(i+1)+'.jpg'" alt="" class="profile-image__img" />
+                        </div>
+                        <div class="pl-3">
+                            <p class="chat-list__name mb-0">{{chat.name}}</p>
+                            <p class="chat-list__message mb-0">{{chat.message}}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <label class="chat-list__info mb-0 mt-2">{{chat.timestamp}}</label>
+                        <div>
+                            <label class="chat-list__info mb-0">
+                                <i-feather name="eye" class="mr-2 chat-list__info-eye-icon"></i-feather>{{chat.replies}} Replies
+                            </label>
+                            <label class="px-2">|</label>
+                            <label class="chat-list__info mb-0">
+                                <i-feather name="bar-chart-2" class="mr-2 chat-list__info-bar-icon"></i-feather>{{chat.chart}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 right-partition px-0">
+            <nav class="nav chat-nav pt-1">
+                <a class="nav-link text-uppercase active">
+                    <i-feather name="eye" class="mr-2 chat-nav__icon"></i-feather>REPLIES
+                </a>
+                <a class="nav-link text-uppercase">
+                    <i-feather name="bar-chart-2" class="mr-2 chat-nav__icon"></i-feather>Reports
+                </a>
+            </nav>
+
+            <div class="conversation">
+                <p class="text-center conversation__time py-2">Today</p>
+
+                <ul class="d-flex flex-column px-2">
+                    <li class="d-flex align-self-end">
+                        <div>
+                            <div class="conversation__msg p-3">
+                                Hey Olivia, did you get a chance to see venue?
+                            </div>
+                            <label class="conversation__time py-2">2Hr ago</label>
+                        </div>
+                        <div class="conversation-image__container mx-2 align-self-center">
+                            <img src="../../assets/profile.jpg" alt="" class="conversation-image__img" />
+                        </div>
+                    </li>
+
+                    <li class="d-flex align-self-start">
+                        <div class="conversation-image__container mx-2 align-self-center">
+                            <img src="../../assets/profile.jpg" alt="" class="conversation-image__img" />
+                        </div>
+                        <div>
+                            <div class="conversation__msg p-3">
+                                Hey Olivia, did you get a chance to see venue?
+                            </div>
+                            <label class="conversation__time py-2">2Hr ago</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="msg-input px-3">
+                <div id="fabPanel" class="fab__panel p-1 mb-2">
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="volume-2" class="mr-1 fab__panel-icon"></i-feather>Audio
+                    </div>
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="video" class="mr-1 fab__panel-icon"></i-feather>Video
+                    </div>
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="type" class="mr-1 fab__panel-icon"></i-feather>Text
+                    </div>
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="image" class="mr-1 fab__panel-icon"></i-feather>Image
+                    </div>
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="mic" class="mr-1 fab__panel-icon"></i-feather>TTS
+                    </div>
+                    <div class="fab__panel-item px-2 py-1">
+                        <i-feather name="film" class="mr-1 fab__panel-icon"></i-feather>Audio & Text
+                    </div>
+                    <div class="fab__panel-tip-arrow"></div>
+                </div>
+
+                <div class="pt-3 position-relative border-top">
+                    <button class="fab btn" (focus)="fabFocus()" (blur)="fabFocusOut()"><label class="fab__label">+</label></button>
+                    <input type="text" class="form-control border-0 px-5">
+                    <button class="btn send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
